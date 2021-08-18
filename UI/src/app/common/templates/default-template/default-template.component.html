@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container mat-app-background">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" mat-list-item routerLink="/">Home</a>
+      <a routerLinkActive="active" mat-list-item routerLink="/product">Products</a>
+      <a routerLinkActive="active" mat-list-item routerLink="/note">Note</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="logo" routerLink="/">Test Task</span>
+      <span style="flex:auto;"></span>
+      <ng-container *ngIf="(userService.user$ | async); let user">
+        <p>{{ user.email }}</p>
+      </ng-container>
+      <button *ngIf="!(userService.user$ | async)" mat-raised-button (click)="login()">Login</button>
+      <button [disabled]="!(userService.user$ | async)" mat-icon-button [matMenuTriggerFor]="menu" class="mat-icon-button-avatar">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button routerLinkActive="active" mat-menu-item routerLink="/user">
+          User Profile
+        </button>
+        <button mat-menu-item (click)="logout()">
+          Logout
+        </button>
+      </mat-menu>
+
+    </mat-toolbar>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

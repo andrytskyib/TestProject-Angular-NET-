@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Edit Note</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="editFrom">
+      <mat-form-field>
+        <input matInput formControlName="id" placeholder="Id" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="creationDate" placeholder="CreationDate" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="message" placeholder="Message" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="productId" placeholder="ProductId" />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="acceptAndClose()" mat-flat-button color="primary">Save</button>
+    <button (click)="cancelAndClose()" mat-button>Cancel</button>
+  </mat-card-actions>
+</mat-card>

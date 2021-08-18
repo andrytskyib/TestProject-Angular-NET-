@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+}
+
+mat-card {
+  margin-top: 20px;
+
+  &-title {
+    margin-bottom: 0 !important;
+  }
+
+  mat-card-header {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  mat-card-title {
+    align-items: center;
+    display: flex;
+  }
+}
+
+

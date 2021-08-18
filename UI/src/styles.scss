@@ -1,0 +1,39 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-dialog-container{
+  padding: 0 !important;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.mat-snack-bar-container {
+  color: #fff;
+
+  &.error {
+    background-color: #d26363;
+  }
+
+  &.success {
+    background-color: #73d973;
+  }
+}
+
+a.active, button.active {
+  color: #3f51b5 !important;
+}
+
+mat-form-field {
+  padding: 0 16px;
+}
+
+mat-card-actions {
+  display: flex !important;
+  justify-content: flex-end;
+  padding: 8px 16px !important;
+}
